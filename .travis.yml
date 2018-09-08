@@ -9,7 +9,7 @@ before_script:
     -O $HOME/twrp.tar.xz
   - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
 script:
-  - cd $HOME/twrp/ && git clone https://github.com/TwrpBuilder/android_device_rockchip_rk3288.git device/rockchip/rk3288
+  - cd $HOME/twrp/ && git clone https://github.com/dbzdivik/android_device_rockchip_rk3288.git device/rockchip/rk3288
   - git clone https://github.com/TwrpBuilder/android_device_generic_twrpbuilder.git device/generic/twrpbuilder
   - git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery --depth=1
   - |
@@ -25,12 +25,11 @@ after_success:
 deploy:
   skip_cleanup: true
   provider: releases
-  api_key: "$GIT_OAUTH_TOKEN_TB"
   file_glob: true
   file: $HOME/twrp/*.img
   on:
     tags: false
-    repo: TwrpBuilder/android_device_rockchip_rk3288
+    repo: dbzdivik/android_device_rockchip_rk3288
     branch: master
 branches:
   except:
