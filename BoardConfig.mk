@@ -26,5 +26,16 @@ BOARD_USES_MMCUTILS := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_INCLUDE_CRYPTO := true
+TWRP_INCLUDE_LOGCAT := true
+
 include $(LOCAL_PATH)/kernel.mk
 include device/generic/twrpbuilder/BoardConfig32.mk
+
+# HAX: Remove this once done
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
+# Battery
+BOARD_HAS_BATTERY := false
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
